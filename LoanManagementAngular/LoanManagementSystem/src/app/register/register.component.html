@@ -1,0 +1,37 @@
+<div class="py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card rounded-0">
+                <div class="Card-header">
+                    <h3 class="mb-0">Register</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <!-- <input type="text" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Enter Name" [(ngModel)]="registerUserData.userName" required> -->
+                                <input type="text" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Enter Name"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">EmailId</label>
+                            <!-- <input type="email" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Enter email" [(ngModel)]="registerUserData.emailId" required> -->
+                                <input type="email" class="form-control" aria-describedby="emailHelp"
+                                placeholder="Enter email"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <!-- <input type="password"  class="form-control"
+                                id="exampleInputPassword1" [(ngModel)]="registerUserData.password" placeholder="Password"> -->
+                                <input type="password"  class="form-control"
+                                id="exampleInputPassword1"  placeholder="Password">
+                        </div>
+                        <button type="submit" (click)="registerUser()"  class="btn btn-success float-right">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

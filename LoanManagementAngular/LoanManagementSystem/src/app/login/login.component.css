@@ -1,0 +1,12 @@
+.loginHd {
+    font-size: 2.75rem;
+    text-align: center;
+}
+.mb-0, .my-0 {
+    margin-bottom: 0!important;
+    text-align: center;
+    background-color: gray;
+}
+.card-body {
+    background-color: darkcyan;
+}
