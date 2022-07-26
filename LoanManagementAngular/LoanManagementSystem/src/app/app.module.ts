@@ -11,6 +11,7 @@ import { LoandetailsComponent } from './loandetails/loandetails.component';
 import { AddnewloanComponent } from './addnewloan/addnewloan.component';
 import { ManageloanComponent } from './manageloan/manageloan.component';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [AuthService],
