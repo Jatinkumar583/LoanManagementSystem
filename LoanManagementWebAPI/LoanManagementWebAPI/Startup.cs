@@ -28,6 +28,7 @@ namespace LoanManagementWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen();
             services.AddScoped<IUserDetails, UserDetails>();
             services.AddDbContext<LoanManagementContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LoanManagementDbConnection")));
         }
@@ -39,7 +40,8 @@ namespace LoanManagementWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseRouting();
 
             app.UseAuthorization();

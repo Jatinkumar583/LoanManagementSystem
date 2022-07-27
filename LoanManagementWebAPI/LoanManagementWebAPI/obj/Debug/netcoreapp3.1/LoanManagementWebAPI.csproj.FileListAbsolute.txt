@@ -61,3 +61,8 @@ D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\ne
 D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\obj\Debug\netcoreapp3.1\LoanManagementWebAPI.csproj.AssemblyReference.cache
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\obj\Debug\netcoreapp3.1\LoanManagementWebAPI.MvcApplicationPartsAssemblyInfo.cs
