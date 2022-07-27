@@ -22,7 +22,7 @@ namespace LoanManagementWebAPI.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
+          
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -60,13 +60,11 @@ namespace LoanManagementWebAPI.Models
 
                 entity.Property(e => e.LoginType)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength(true);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
 

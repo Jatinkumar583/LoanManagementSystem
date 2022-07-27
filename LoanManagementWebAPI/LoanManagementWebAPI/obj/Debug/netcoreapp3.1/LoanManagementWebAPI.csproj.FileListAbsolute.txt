@@ -66,3 +66,5 @@ D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\ne
 D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\obj\Debug\netcoreapp3.1\LoanManagementWebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\LoanManagementProjects\LoanManagementWebAPI\LoanManagementWebAPI\obj\Debug\netcoreapp3.1\LoanManagementWebAPI.csproj.CopyComplete

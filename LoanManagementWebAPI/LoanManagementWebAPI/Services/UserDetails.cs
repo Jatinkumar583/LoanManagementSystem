@@ -18,5 +18,21 @@ namespace LoanManagementWebAPI.Services
         {
             return _loanManagementContext.TblUserData.Where(x => x.EmailId == user.EmailId).FirstOrDefault();
         }
+
+        public void RegisterUser(UserRegistDetails users)
+        {
+            TblUserDatum tblUser = new TblUserDatum
+            {
+                UserName = users.UserName,
+                EmailId = users.EmailId,
+                Password = users.Password,
+                LoginType = users.LoginType,
+                UpdatedBy = null,
+                CreatedDate = DateTime.UtcNow,
+                UpdatedDate = DateTime.UtcNow
+            };
+            _loanManagementContext.TblUserData.Add(tblUser);
+            _loanManagementContext.SaveChanges();
+        }
     }
 }

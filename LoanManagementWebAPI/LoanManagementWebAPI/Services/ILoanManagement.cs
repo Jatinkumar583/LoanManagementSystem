@@ -1,5 +1,4 @@
 ﻿using LoanManagementWebAPI.Models;
-using LoanManagementWebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace LoanManagementWebAPI.Services
 {
-    public interface IUserDetails
+    public interface ILoanManagement
     {
-        void RegisterUser(UserRegistDetails users);
-        TblUserDatum GetUserDetails(User user);
+        TblLoanDetail GetLoanRecordsById(int loanId);
+        int SaveLoanRecord(TblLoanDetail tblLoanDetail);
+        int CancelLoanRecord(int loanId);
     }
 }

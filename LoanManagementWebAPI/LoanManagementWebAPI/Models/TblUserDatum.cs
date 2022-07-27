@@ -13,7 +13,6 @@ namespace LoanManagementWebAPI.Models
         public string Password { get; set; }
         public string LoginType { get; set; }
         public DateTime? CreatedDate { get; set; }
-        public int? CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public int? UpdatedBy { get; set; }
     }

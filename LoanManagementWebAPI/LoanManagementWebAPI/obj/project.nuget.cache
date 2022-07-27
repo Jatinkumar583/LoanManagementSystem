@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "plviLBIJ0Mth9FensJyR72eHT1amZwWaWP5pHJeI41lpNrQYWadFt+V46PYDfN5ItI1Z8wuoX+Uy+dImZ3jdcA==",
+  "dgSpecHash": "x0DB0o9tE4fNIt9mSFdxU3gHHPK88ukr/+jBOiI5/S2QxbengVJnbBnnEvygoLe5Y0uVqWz1kpCImQS5H928cw==",
   "success": true,
   "projectFilePath": "D:\\LoanManagementProjects\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.24\\microsoft.aspnetcore.authentication.jwtbearer.3.1.24.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
