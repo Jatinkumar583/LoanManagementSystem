@@ -1,6 +1,9 @@
+using LoanManagementWebAPI.Models;
+using LoanManagementWebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +28,8 @@ namespace LoanManagementWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IUserDetails, UserDetails>();
+            services.AddDbContext<LoanManagementContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LoanManagementDbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
