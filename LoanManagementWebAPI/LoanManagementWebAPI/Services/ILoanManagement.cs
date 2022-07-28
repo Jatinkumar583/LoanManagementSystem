@@ -1,4 +1,5 @@
 ﻿using LoanManagementWebAPI.Models;
+using LoanManagementWebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace LoanManagementWebAPI.Services
     public interface ILoanManagement
     {
         TblLoanDetail GetLoanRecordsById(int loanId);
-        int SaveLoanRecord(TblLoanDetail tblLoanDetail);
+        int SaveLoanRecord(LoanDetails tblLoanDetail);
         int CancelLoanRecord(int loanId);
     }
 }

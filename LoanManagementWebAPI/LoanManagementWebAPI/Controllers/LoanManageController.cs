@@ -1,4 +1,6 @@
-﻿using LoanManagementWebAPI.Services;
+﻿using LoanManagementWebAPI.Models;
+using LoanManagementWebAPI.Services;
+using LoanManagementWebAPI.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,31 +35,32 @@ namespace LoanManagementWebAPI.Controllers
             }
         }
 
-        //[HttpPost("booking/flightdetails")]
-        //public IActionResult SaveLoanDetails(BookingDetails bookingDetail)
-        //{
-        //    try
-        //    {
-        //        if (bookingDetail != null)
-        //        {
-        //            int bookStatus = _loanManagement.BookFlight(bookingDetail);
-        //            if (bookStatus == 1)
-        //            {
-        //                return Ok("Flight Booked Successfully.");
-        //            }
-        //            else
-        //            {
-        //                return BadRequest("Flight Not Booked.");
-        //            }
-        //        }
-        //        return BadRequest();
-        //    }
-        //    catch
-        //    {
-        //        return BadRequest();
-        //    }
+        [HttpPost("loan/saveloandetails")]
+        public IActionResult SaveLoanDetails(LoanDetails loanDetails)
+        {
+            try
+            {
+                if (loanDetails != null)
+                {
+                   
+                    int bookStatus = _loanManagement.SaveLoanRecord(loanDetails);
+                    if (bookStatus == 1)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                return BadRequest();
+            }
+            catch
+            {
+                return BadRequest();
+            }
 
-        //}
+        }
 
         //[HttpDelete("booking/cancel/{pnr}")]
         //public IActionResult DeleteLoanDetails(string pnr)

@@ -1,4 +1,5 @@
 ﻿using LoanManagementWebAPI.Models;
+using LoanManagementWebAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,33 @@ namespace LoanManagementWebAPI.Services
             return _loanManagementContext.TblLoanDetails.Where(x => x.LoanId == loanId).FirstOrDefault();
         }
 
-        public int SaveLoanRecord(TblLoanDetail tblLoanDetail)
+        public int SaveLoanRecord(LoanDetails loanDetails)
         {
-            throw new NotImplementedException();
+            try
+            {
+                #region Inserting record to LoanDetail table
+                TblLoanDetail tblLoanDetail = new TblLoanDetail()
+                {
+                    ApplicantFirstName = loanDetails.ApplicantFirstName,
+                    ApplicantLastName = loanDetails.ApplicantLastName,
+                    ApplicantAddress = loanDetails.ApplicantAddress,
+                    CreatedBy = loanDetails.CreatedBy,
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedBy=loanDetails.UpdatedBy,
+                    UpdatedDate=DateTime.UtcNow                   
+                };
+                _loanManagementContext.TblLoanDetails.Add(tblLoanDetail);
+                _loanManagementContext.SaveChanges();
+                int newLoanId = tblLoanDetail.LoanId;
+                #endregion
+
+                return newLoanId;
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
         }
     }
 }
