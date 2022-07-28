@@ -11,6 +11,7 @@ namespace LoanManagementWebAPI.Services
     {
         TblLoanDetail GetLoanRecordsById(int loanId);
         int SaveLoanRecord(LoanDetails tblLoanDetail);
+        int UpdateLoanRecord(TblLoanDetail tblLoanDetail);
         int CancelLoanRecord(int loanId);
     }
 }

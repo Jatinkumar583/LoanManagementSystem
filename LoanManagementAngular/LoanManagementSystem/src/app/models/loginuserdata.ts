@@ -1,4 +1,4 @@
 export class LoginUserData{
-    userName:string='';
-    password:string='';
+    EmailId:string='';
+    Password:string='';
 }

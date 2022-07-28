@@ -16,7 +16,23 @@ namespace LoanManagementWebAPI.Services
         }
         public int CancelLoanRecord(int loanId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                #region Deleting from tblloan table
+                var itemToRemove = _loanManagementContext.TblLoanDetails.SingleOrDefault(x => x.LoanId == loanId);
+                if (itemToRemove != null)
+                {
+                    _loanManagementContext.TblLoanDetails.Remove(itemToRemove);
+                    _loanManagementContext.SaveChanges();
+                }
+                #endregion
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+
         }
 
         public TblLoanDetail GetLoanRecordsById(int loanId)
@@ -36,8 +52,8 @@ namespace LoanManagementWebAPI.Services
                     ApplicantAddress = loanDetails.ApplicantAddress,
                     CreatedBy = loanDetails.CreatedBy,
                     CreatedDate = DateTime.UtcNow,
-                    UpdatedBy=loanDetails.UpdatedBy,
-                    UpdatedDate=DateTime.UtcNow                   
+                    UpdatedBy = loanDetails.UpdatedBy,
+                    UpdatedDate = DateTime.UtcNow
                 };
                 _loanManagementContext.TblLoanDetails.Add(tblLoanDetail);
                 _loanManagementContext.SaveChanges();
@@ -46,9 +62,42 @@ namespace LoanManagementWebAPI.Services
 
                 return newLoanId;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
+                return 0;
+            }
+        }
+
+        public int UpdateLoanRecord(TblLoanDetail tblLoanDetail)
+        {
+            try
+            {
+                #region Update tblloan table
+                var entity = _loanManagementContext.TblLoanDetails.FirstOrDefault(item => item.LoanId == tblLoanDetail.LoanId);
+                // Validate entity is not null
+                if (entity != null)
+                {
+                    // Make changes on entity
+                    entity.ApplicantFirstName = tblLoanDetail.ApplicantFirstName;
+                    entity.ApplicantLastName = tblLoanDetail.ApplicantLastName;
+                    entity.ApplicantAddress = tblLoanDetail.ApplicantAddress;
+                    entity.UpdatedBy = tblLoanDetail.UpdatedBy;
+                    entity.UpdatedDate = DateTime.UtcNow;
+
+                    // Save changes in database
+                    _loanManagementContext.SaveChanges();
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
                 return 0;
             }
         }

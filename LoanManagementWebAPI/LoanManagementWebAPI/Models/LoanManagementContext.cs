@@ -22,7 +22,7 @@ namespace LoanManagementWebAPI.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-          
+         
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace LoanManagementWebAPI.Models
 
             modelBuilder.Entity<TblLoanDetail>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.LoanId);
 
                 entity.ToTable("tblLoanDetails");
 
@@ -41,14 +41,12 @@ namespace LoanManagementWebAPI.Models
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.LoanId).ValueGeneratedOnAdd();
-
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<TblUserDatum>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.UserId);
 
                 entity.ToTable("tblUserData");
 
@@ -67,8 +65,6 @@ namespace LoanManagementWebAPI.Models
                     .HasMaxLength(50);
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
-
-                entity.Property(e => e.UserId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.UserName)
                     .IsRequired()

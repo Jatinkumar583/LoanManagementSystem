@@ -43,8 +43,8 @@ namespace LoanManagementWebAPI.Controllers
                 if (loanDetails != null)
                 {
                    
-                    int bookStatus = _loanManagement.SaveLoanRecord(loanDetails);
-                    if (bookStatus == 1)
+                    int status = _loanManagement.SaveLoanRecord(loanDetails);
+                    if (status >= 1)
                     {
                         return Ok();
                     }
@@ -62,25 +62,51 @@ namespace LoanManagementWebAPI.Controllers
 
         }
 
-        //[HttpDelete("booking/cancel/{pnr}")]
-        //public IActionResult DeleteLoanDetails(string pnr)
-        //{
-        //    try
-        //    {
-        //        int cancelStatus = _loanManagement.CancelBookedTicketByPNR(pnr);
-        //        if (cancelStatus == 1)
-        //        {
-        //            return Ok();
-        //        }
-        //        else
-        //        {
-        //            return BadRequest();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        return BadRequest();
-        //    }
-        //}
+        [HttpPost("loan/loandetails/update")]
+        public IActionResult UpdateLoanDetails(TblLoanDetail tblLoanDetail)
+        {
+            try
+            {
+                if (tblLoanDetail != null)
+                {
+                    var addStatus = _loanManagement.UpdateLoanRecord(tblLoanDetail);
+                    if (addStatus == 1)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                return BadRequest();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpDelete("loan/deleteloandetails/{loanId}")]
+        public IActionResult DeleteLoanDetails(int loanId)
+        {
+            try
+            {
+                int cancelStatus = _loanManagement.CancelLoanRecord(loanId);
+                if (cancelStatus == 1)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }

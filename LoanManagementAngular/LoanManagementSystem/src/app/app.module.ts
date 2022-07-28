@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,6 +12,9 @@ import { AddnewloanComponent } from './addnewloan/addnewloan.component';
 import { ManageloanComponent } from './manageloan/manageloan.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { RouterModule } from '@angular/router';
+import { AuthGaurd } from './services/auth.gaurd';
 
 @NgModule({
   declarations: [
@@ -27,9 +30,14 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RouterModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,AuthGaurd,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

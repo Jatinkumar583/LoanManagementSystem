@@ -36,7 +36,7 @@ namespace LoanManagementWebAPI.Controllers
             return Ok(token);
         }
 
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [HttpPost]
         [Route("getuserdetails")]
         public IActionResult GetUserDetails(User user)
