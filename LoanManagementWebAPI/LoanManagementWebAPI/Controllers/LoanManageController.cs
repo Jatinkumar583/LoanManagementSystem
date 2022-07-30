@@ -23,11 +23,24 @@ namespace LoanManagementWebAPI.Controllers
         }
 
         [HttpGet("loan/{loanId}")]
-        public IActionResult GetLoanDetails(int loanId)
+        public IActionResult GetLoanDetailsById(int loanId)
         {
             try
             {
                 return Ok(_loanManagement.GetLoanRecordsById(loanId));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("loan/list")]
+        public IActionResult GetLoansList()
+        {
+            try
+            {
+                return Ok(_loanManagement.GetAllLoanRecords());
             }
             catch
             {

@@ -4,7 +4,7 @@
         <form  #loandetails="ngForm" (ngSubmit)="GetLoanDetails(loandetails.value)" class="row g-3 needs-validation" novalidate>
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label" >Enter Loan Number</label>
-              <input type="text" class="form-control" id="validationCustom01" name="txtFromPlace" ngModel required>      
+              <input type="text" class="form-control" id="validationCustom01" name="txtLoanNumber" ngModel required>      
             </div>
             <!-- <div class="col-md-3">
               <label for="validationCustom02" class="form-label" >To Place</label>
@@ -34,25 +34,24 @@
                 <thead class="thead">
                     <tr>
                         <th>Loan No.</th>
-                        <th>Applicant Name</th>
-                        <th>Address</th>
-                        <th>Lender Name</th>
-                        <th>Loan Amount</th>                      
+                        <th>Applicant First Name</th>
+                        <th>Applicant Last Name</th>
+                        <th>Address</th>                  
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr class="bg-green" *ngFor="let item of filteredRecord">
-                        <td>{{item.flightNumber}}</td>
-                        <td>{{item.airline}}</td>
-                        <td>{{item.fromPlace}}</td>
-                        <td>{{item.toPlace}}</td>
-                        <td>{{item.startDateTime}}</td>
+                    <tr class="bg-green" *ngFor="let item of filteredRecord">
+                        <td>{{item.loanId}}</td>
+                        <td>{{item.applicantFirstName}}</td>
+                        <td>{{item.applicantLastName}}</td>
+                        <td>{{item.applicantAddress}}</td>
+                        <!-- <td>{{item.startDateTime}}</td>
                         <td>{{item.endDateTime}}</td>
                         <td>{{item.totalBussClassSeats}}</td>                        
-                        <td>{{item.ticketCost}}</td>
-                        <td><button class="btn btn-primary" (click)="GoToBookFlight(item)" type="submit">Book Flight</button></td>                     
-                    </tr> -->
+                        <td>{{item.ticketCost}}</td> -->
+                        <td><button class="btn btn-primary" (click)="ShowLoanDetails(item)" type="submit">Loan Details</button></td>                     
+                    </tr>
                 </tbody>
             </table>
         </div>

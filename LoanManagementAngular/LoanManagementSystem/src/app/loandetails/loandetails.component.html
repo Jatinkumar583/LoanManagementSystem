@@ -4,8 +4,8 @@
         <div class="row g-3 needs-validation" novalidate>
             <div class="col-md-3">
                 <label for="validationCustom01" class="form-label">Loan Number</label>
-                <input class="form-control" type="text" 
-                    readonly>
+                <input class="form-control" type="text" [(ngModel)]="loanRecord.loanId"
+                readonly>
             </div>
             <div class="col-md-3">
                 <label for="validationCustom02" class="form-label">Applicant Name</label>

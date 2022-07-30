@@ -10,6 +10,7 @@ namespace LoanManagementWebAPI.Services
     public interface ILoanManagement
     {
         TblLoanDetail GetLoanRecordsById(int loanId);
+        List<TblLoanDetail> GetAllLoanRecords();
         int SaveLoanRecord(LoanDetails tblLoanDetail);
         int UpdateLoanRecord(TblLoanDetail tblLoanDetail);
         int CancelLoanRecord(int loanId);

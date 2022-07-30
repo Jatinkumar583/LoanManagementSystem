@@ -35,6 +35,11 @@ namespace LoanManagementWebAPI.Services
 
         }
 
+        public List<TblLoanDetail> GetAllLoanRecords()
+        {
+            return _loanManagementContext.TblLoanDetails.ToList();
+        }
+
         public TblLoanDetail GetLoanRecordsById(int loanId)
         {
             return _loanManagementContext.TblLoanDetails.Where(x => x.LoanId == loanId).FirstOrDefault();

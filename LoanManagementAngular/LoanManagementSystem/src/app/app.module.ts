@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RouterModule } from '@angular/router';
 import { AuthGaurd } from './services/auth.gaurd';
+import { EventService } from './services/event.service';
+import { FilterPanelService } from './services/filterpanel';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { AuthGaurd } from './services/auth.gaurd';
     RouterModule,
     HttpClientModule
   ],
-  providers: [AuthService,AuthGaurd,{
+  providers: [AuthService,EventService,FilterPanelService,DatePipe,AuthGaurd,{
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,
     multi:true
