@@ -9,16 +9,19 @@
           <a class="nav-link" routerLink="/events" href="#">Events <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/searchloan" *ngIf="UserSection" href="#">Search Loan Application </a>
+          <a class="nav-link" routerLink="/searchloan" *ngIf="UserSection" href="#">Loan Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/loandetails" *ngIf="UserSection" href="#">Loan Application Details</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/addnewloan" *ngIf="AdminSection" href="#">New Loan Application</a>
+          <a class="nav-link" routerLink="/loandetails" *ngIf="UserSection" href="#">Loan Details</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/manageloan" *ngIf="AdminSection" href="#">Manange Loan Application</a>
+          <a class="nav-link" routerLink="/addnewloan" *ngIf="AdminSection" href="#">New Loan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/manageloan" *ngIf="AdminSection" href="#">Loan Records</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/viewloan" *ngIf="AdminSection" href="#">Manage Loans</a>
         </li>
       </ul>
       <span class="navbar-text">

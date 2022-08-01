@@ -18,6 +18,7 @@ import { AuthGaurd } from './services/auth.gaurd';
 import { EventService } from './services/event.service';
 import { FilterPanelService } from './services/filterpanel';
 import { DatePipe } from '@angular/common';
+import { ViewloanComponent } from './viewloan/viewloan.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DatePipe } from '@angular/common';
     LoandetailsComponent,
     AddnewloanComponent,
     ManageloanComponent,
-    RegisterComponent
+    RegisterComponent,
+    ViewloanComponent
   ],
   imports: [
     BrowserModule,

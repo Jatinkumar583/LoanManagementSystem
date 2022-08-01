@@ -10,11 +10,10 @@ export class EventService {
     constructor(private http: HttpClient, private _router: Router) {
 
     }
-    saveNewAirline(data: any) {
-        //return this.http.post("http://localhost:64350/api/v1.0/flight/airline/register", data);
+    AddNewLoan(data: any) {
+        return this.http.post("http://localhost:63241/api/loan/saveloandetails", data);
     }
-    GetLoansList() {
-        console.log("service hit")
+    GetLoansList() {       
         return this.http.get<any>("http://localhost:63241/api/loan/list");
     }
    

@@ -10,6 +10,7 @@ import { SearchloanComponent } from './searchloan/searchloan.component';
 import { ManageloanComponent } from './manageloan/manageloan.component';
 import { RegisterComponent } from './register/register.component';
  import { AuthGaurd } from './services/auth.gaurd';
+import { ViewloanComponent } from './viewloan/viewloan.component';
 // import { SpecialEventsComponent } from './special-events/special-events.component';
 // import { TicketdetailsComponent } from './ticketdetails/ticketdetails.component';
 
@@ -39,6 +40,11 @@ const routes: Routes = [
     path: 'manageloan',
     canActivate:[AuthGaurd],
     component: ManageloanComponent
+  },
+  {
+    path: 'viewloan',
+    canActivate:[AuthGaurd],
+    component: ViewloanComponent
   },
   {
     path: 'login',

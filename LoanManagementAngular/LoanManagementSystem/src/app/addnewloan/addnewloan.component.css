@@ -1,0 +1,26 @@
+.new-card-title {
+    margin-bottom: 0.75rem;
+    background-color: lavender;
+    font-size: x-large;
+    text-align: center;
+}
+.btnAddNewLoan{
+    text-align: center;
+    background-color: dodgerblue;
+    margin-top: 15%;
+    color: white;
+    font-weight: 800;
+}
+
+.new-card-title {
+    margin-bottom: 0.75rem;
+    background-color: lavender;
+    font-size: x-large;
+    text-align: center;
+}
+.col-new-md{
+    margin-top: 32px;
+}
+.thead{
+    background-color: darkgray;
+}
