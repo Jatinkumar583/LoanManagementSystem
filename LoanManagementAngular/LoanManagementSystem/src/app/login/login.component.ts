@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoginUserData } from '../models/loginuserdata';
 import { UserData } from '../models/UserData';
 import { AuthService } from '../services/auth.service';
@@ -15,7 +16,7 @@ export class LoginComponent {
 
   loginUser() {     
     this.GetLoginUserDetails();
-    this._auth.loginUser(this.loginUserData).subscribe(res=>this.SuccessGet(res),res=> console.log(res));
+    this._auth.loginUser(this.loginUserData).subscribe(res=>this.SuccessGet(res),res=> this.OnError(res));
       
     }
 
@@ -40,5 +41,13 @@ export class LoginComponent {
         console.log("hit 2")
         this._router.navigate(['/searchloan'])
       }     
+    }
+    OnError(res:any){ 
+      Swal.fire({  
+        position: 'center',  
+        icon: 'error',  
+        title: 'Oops...',  
+        text: 'Username/Password is invalid!'
+      })  
     }
 }

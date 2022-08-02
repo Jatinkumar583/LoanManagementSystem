@@ -55,6 +55,10 @@ namespace LoanManagementWebAPI.Services
                     ApplicantFirstName = loanDetails.ApplicantFirstName,
                     ApplicantLastName = loanDetails.ApplicantLastName,
                     ApplicantAddress = loanDetails.ApplicantAddress,
+                    LoanType = loanDetails.LoanType,
+                    LoanAmount = loanDetails.LoanAmount,
+                    LoanTerm = loanDetails.LoanTerm,
+                    PropertyAddress=loanDetails.PropertyAddress,
                     CreatedBy = loanDetails.CreatedBy,
                     CreatedDate = DateTime.UtcNow,
                     UpdatedBy = loanDetails.UpdatedBy,
@@ -87,6 +91,10 @@ namespace LoanManagementWebAPI.Services
                     entity.ApplicantFirstName = tblLoanDetail.ApplicantFirstName;
                     entity.ApplicantLastName = tblLoanDetail.ApplicantLastName;
                     entity.ApplicantAddress = tblLoanDetail.ApplicantAddress;
+                    entity.LoanType = tblLoanDetail.LoanType;
+                    entity.LoanAmount = tblLoanDetail.LoanAmount;
+                    entity.LoanTerm = tblLoanDetail.LoanTerm;
+                    entity.PropertyAddress = tblLoanDetail.PropertyAddress;
                     entity.UpdatedBy = tblLoanDetail.UpdatedBy;
                     entity.UpdatedDate = DateTime.UtcNow;
 

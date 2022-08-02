@@ -18,6 +18,7 @@ export class AddnewloanComponent implements OnInit {
   }
 
   SaveNewLoan() {
+    this.newLoanRec.loanAmount=Number(this.newLoanRec.loanAmount);
     this.newLoanRec.createdDate=new Date();
     this.newLoanRec.createdBy=Number(localStorage.getItem('userid')!);
     this.newLoanRec.updatedBy=Number(localStorage.getItem('userid')!);

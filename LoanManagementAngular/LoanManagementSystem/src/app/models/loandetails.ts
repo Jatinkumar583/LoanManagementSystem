@@ -3,6 +3,10 @@ export class LoanDetails{
     applicantFirstName: string="";
     applicantLastName:string="";
     applicantAddress:string="";  
+    loanType:string="";
+    loanAmount:Number=0;
+    loanTerm:string="";
+    propertyAddress:string="";
     createdBy: Number=0;
     createdDate: Date = new Date();
     updatedBy: Number=0;

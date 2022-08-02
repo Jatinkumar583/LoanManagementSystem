@@ -25,6 +25,7 @@ export class ViewloanComponent implements OnInit {
   }
 
   UpdateLoanDetails(){
+  this.loanRecord.loanAmount=Number(this.loanRecord.loanAmount);
   this._eventService.UpdateLoanRecord(this.loanRecord).subscribe(res=>this.OnSuccess(res),res=>this.OnError(res));
   }
   DeleteLoanRecord(){

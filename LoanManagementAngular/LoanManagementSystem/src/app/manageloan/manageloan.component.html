@@ -30,8 +30,8 @@
                         <th>Loan No.</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Loan Type</th>                      
                         <th>Property Address</th>
-                        <th>Loan Type</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -40,8 +40,8 @@
                         <td >{{item.loanId}}</td>
                         <td>{{item.applicantFirstName}}</td>
                         <td>{{item.applicantLastName}}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{item.loanType}}</td>
+                        <td>{{item.propertyAddress}}</td>
                         <td>
                           <button class="btn btn-primary"  type="submit" (click)="ViewLoanDetails(item)">View</button>
                           <button class="btn btn-danger"  type="submit" (click)="DeleteLoanDetails(item)">Delete</button>

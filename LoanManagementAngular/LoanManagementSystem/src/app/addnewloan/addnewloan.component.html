@@ -14,9 +14,25 @@
             <div class="col-md-3">
               <label for="validationCustom03" class="form-label" >Applicant Address</label>
               <input type="text" class="form-control" id="validationCustom03" [(ngModel)]="newLoanRec.applicantAddress" required>     
-            </div>           
+            </div>    
+            <div class="col-md-3">
+              <label for="validationCustom03" class="form-label" >Loan Type</label>
+              <input type="text" class="form-control" id="validationCustom03" [(ngModel)]="newLoanRec.loanType" required>     
+            </div> 
+            <div class="col-md-3">
+              <label for="validationCustom03" class="form-label" >Loan Amount</label>
+              <input type="text" class="form-control" id="validationCustom03" [(ngModel)]="newLoanRec.loanAmount" required>     
+            </div> 
+            <div class="col-md-3">
+              <label for="validationCustom03" class="form-label" >Loan Term</label>
+              <input type="text" class="form-control" id="validationCustom03" [(ngModel)]="newLoanRec.loanTerm" required>     
+            </div> 
+            <div class="col-md-3">
+              <label for="validationCustom03" class="form-label" >Property Address</label>
+              <input type="text" class="form-control" id="validationCustom03" [(ngModel)]="newLoanRec.propertyAddress" required>     
+            </div>        
             <div class="col-new-md">
-              <button class="btn btn-primary" type="submit" (click)="SaveNewLoan()">Submit Loan</button>
+              <button class="btn btn-primary" type="submit" (click)="SaveNewLoan()">Submit</button>
             </div>
       </div>
     </div>
