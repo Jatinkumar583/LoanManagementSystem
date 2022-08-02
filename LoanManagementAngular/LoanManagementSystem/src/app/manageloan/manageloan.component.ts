@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoanDetails } from '../models/loandetails';
 import { EventService } from '../services/event.service';
 import { FilterPanelService } from '../services/filterpanel';
@@ -18,17 +19,17 @@ export class ManageloanComponent implements OnInit {
 
   ngOnInit(): void {
     //var userEmailId=localStorage.getItem('emailId')!;
-    this._eventService.GetLoansList().subscribe(res => this.SuccessGet(res), err => (console.log(err)));
+    this._eventService.GetLoansList().subscribe(res => this.girdLoanList=res, err => (console.log(err),this._router.navigate(['/login'])));
     //this.girdLoanList=this.loanRecords;   
   }
 
-  SuccessGet(res:any){       
-    this.girdLoanList=res;
-    for (let index = this.girdLoanList.length; index >=0; index--) {
-      this.descLoanList[this.girdLoanList.length- index] = this.girdLoanList[index];      
-    }
-    console.log(this.descLoanList);
-  }
+  // SuccessGet(res:any){       
+  //   this.girdLoanList=res;
+  //   for (let index = this.girdLoanList.length; index >=0; index--) {
+  //     this.descLoanList[this.girdLoanList.length- index] = this.girdLoanList[index];      
+  //   }
+  //   //console.log(this.descLoanList);
+  // }
 
   GetAllLoanRecords(data: any) {    
     // var userEmailId=localStorage.getItem('emailId')!;
@@ -41,8 +42,31 @@ export class ManageloanComponent implements OnInit {
   }
 
   ViewLoanDetails(loanDetails:LoanDetails){
-   // this.filterPanelService.BookedData = ticketDetails;    
+    this.filterPanelService.SelectedLoanDetails = loanDetails;    
     this._router.navigate(['/viewloan']);   
   }
+
+ 
+  DeleteLoanDetails(loanDetails:LoanDetails){
+    this._eventService.DeleteLoanRecord(loanDetails.loanId).subscribe(res=>this.OnSuccessDelete(res),res=>this.OnError(res));  
+  }
+  
+  OnSuccessDelete(res:any){    
+    Swal.fire({  
+      position: 'center',  
+      icon: 'success',  
+      text: 'Record Deleted Successfully!'
+    })    
+    this.ngOnInit();
+  }
+  OnError(res:any){     
+    Swal.fire({  
+      position: 'center',  
+      icon: 'error',  
+      title: 'Oops...',  
+      text: 'Something went wrong!'
+    })  
+  }
+
 
 }

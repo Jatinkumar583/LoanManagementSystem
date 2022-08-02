@@ -5,17 +5,17 @@ import { LoanDetails } from '../models/loandetails';
 @Injectable()
 export class FilterPanelService {
 
-  //selectedFlightDetails: AirlineInventory=new AirlineInventory();
+  selectedLoanRecord: LoanDetails=new LoanDetails();
   previousLoanDetail: LoanDetails=new LoanDetails();
   constructor() { }
 
-//    get data(): any{
-//     return this.selectedFlightDetails;
-//   }
+   get SelectedLoanDetails(): any{
+    return this.selectedLoanRecord;
+  }
 
-//   set data(val: any){
-//     this.selectedFlightDetails = val;
-//   }
+  set SelectedLoanDetails(val: any){
+    this.selectedLoanRecord = val;
+  }
 
   get SelectedLoanData(): any{
     return this.previousLoanDetail;

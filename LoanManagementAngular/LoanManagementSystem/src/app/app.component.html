@@ -20,7 +20,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/manageloan" *ngIf="AdminSection" href="#">Loan Records</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="showManageLoan">
           <a class="nav-link" routerLink="/viewloan" *ngIf="AdminSection" href="#">Manage Loans</a>
         </li>
       </ul>

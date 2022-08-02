@@ -18,12 +18,12 @@ export class EventService {
     }
    
 
-    CancelLoanRecord(pnr:string){
-       // return this.http.delete<any>("http://localhost:55167/api/v1.0/flight/booking/cancel/"+pnr+"");
+    DeleteLoanRecord(loanId:number){
+        return this.http.delete<any>("http://localhost:63241/api/loan/deleteloandetails/"+loanId+"");
     }
 
-    UpdateFlightInventory(data:LoanDetails){
-       // return this.http.post("http://localhost:64350/api/v1.0/flight/airline/inventory/update", data);
+    UpdateLoanRecord(data:LoanDetails){
+       return this.http.post("http://localhost:63241/api/loan/loandetails/update", data);
     }
 
 }

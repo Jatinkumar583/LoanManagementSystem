@@ -1,1 +1,35 @@
-<p>viewloan works!</p>
+<div class="card">
+    <div class="card-body">
+        <h5 class="new-card-title" >Loan Details</h5>
+        <div class="row g-3 needs-validation" novalidate>
+            <div class="col-md-3">
+                <label for="validationCustom01" class="form-label">Loan Number</label>
+                <input class="form-control" type="text" [(ngModel)]="loanRecord.loanId"
+                readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom02" class="form-label">Applicant First Name</label>
+                <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantFirstName">
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom02" class="form-label">Applicant Last Name</label>
+                <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantLastName">
+            </div>
+
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Applicant Address</label>
+                <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantAddress">
+            </div>  
+
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Created Date</label>
+                <input class="form-control" type="text" [(ngModel)]="loanRecord.createdDate"
+                     readonly>
+            </div>
+            <div class="col-new-md">
+                <button class="btn btn-primary" type="submit" (click)="UpdateLoanDetails()">Update</button>
+                <button class="btn btn-danger" type="submit" (click)="DeleteLoanRecord()">Delete</button>
+              </div>
+        </div>
+    </div>
+</div>

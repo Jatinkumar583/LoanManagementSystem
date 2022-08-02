@@ -42,8 +42,10 @@
                         <td>{{item.applicantLastName}}</td>
                         <td></td>
                         <td></td>
-                        <td><button class="btn btn-primary"  type="submit" (click)="ViewLoanDetails(item)">View Details</button></td>
-                       
+                        <td>
+                          <button class="btn btn-primary"  type="submit" (click)="ViewLoanDetails(item)">View</button>
+                          <button class="btn btn-danger"  type="submit" (click)="DeleteLoanDetails(item)">Delete</button>
+                        </td>                       
                     </tr>
                 </tbody>
             </table>

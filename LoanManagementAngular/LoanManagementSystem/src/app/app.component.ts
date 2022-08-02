@@ -8,6 +8,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'LoanManagement';
+  showManageLoan:boolean=false;
   UserSection:boolean=true;
   AdminSection:boolean=false;
   constructor(private _authService:AuthService) {
