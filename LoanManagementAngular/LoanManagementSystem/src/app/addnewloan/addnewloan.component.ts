@@ -18,12 +18,23 @@ export class AddnewloanComponent implements OnInit {
   }
 
   SaveNewLoan() {
+    if(String(this.newLoanRec.loanAmount)[0]!="0")  {      
     this.newLoanRec.loanAmount=Number(this.newLoanRec.loanAmount);
     this.newLoanRec.createdDate=new Date();
     this.newLoanRec.createdBy=Number(localStorage.getItem('userid')!);
     this.newLoanRec.updatedBy=Number(localStorage.getItem('userid')!);
     this.newLoanRec.updatedDate=new Date();   
-    this._eventService.AddNewLoan(this.newLoanRec).subscribe(res=>this.SuccessGet(res),res=>this.ErrorGet(res));    
+    console.log(this.newLoanRec);
+    this._eventService.AddNewLoan(this.newLoanRec).subscribe(res=>this.SuccessGet(res),res=>this.ErrorGet(res)); 
+    }   
+    else {
+      Swal.fire({  
+        position: 'center',  
+        icon: 'error',  
+        title: 'Oops...',  
+        text: 'Invalid loan amount!'
+      }) 
+    }
   }
 
   SuccessGet(res:any){   
@@ -41,6 +52,15 @@ export class AddnewloanComponent implements OnInit {
       title: 'Oops...',  
       text: 'Something went wrong!'
     })  
+  }
+
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+
   }
 
 }

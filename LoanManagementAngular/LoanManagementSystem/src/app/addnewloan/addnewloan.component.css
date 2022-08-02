@@ -24,3 +24,8 @@
 .thead{
     background-color: darkgray;
 }
+
+#lblValidationMessage{
+    font-weight: 500;
+    color: red;
+}
