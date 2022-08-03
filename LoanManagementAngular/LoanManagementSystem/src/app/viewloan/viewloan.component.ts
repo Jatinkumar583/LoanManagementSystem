@@ -25,8 +25,18 @@ export class ViewloanComponent implements OnInit {
   }
 
   UpdateLoanDetails(){
-  this.loanRecord.loanAmount=Number(this.loanRecord.loanAmount);
-  this._eventService.UpdateLoanRecord(this.loanRecord).subscribe(res=>this.OnSuccess(res),res=>this.OnError(res));
+    if(String(this.loanRecord.loanAmount)[0]!="0"){
+      this.loanRecord.loanAmount=Number(this.loanRecord.loanAmount);
+      this._eventService.UpdateLoanRecord(this.loanRecord).subscribe(res=>this.OnSuccess(res),res=>this.OnError(res));
+    }
+    else{
+      Swal.fire({  
+        position: 'center',  
+        icon: 'error',  
+        title: 'Oops...',  
+        text: 'Invalid loan amount!'
+      }) 
+    } 
   }
   DeleteLoanRecord(){
     this._eventService.DeleteLoanRecord(this.loanRecord.loanId).subscribe(res=>this.OnSuccessDelete(res),res=>this.OnError(res));
@@ -54,7 +64,14 @@ export class ViewloanComponent implements OnInit {
       text: 'Something went wrong!'
     })  
   }
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
 
+  }
 
 
 }

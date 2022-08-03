@@ -1,51 +1,92 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="new-card-title" >Loan Details</h5>
-        <div class="row g-3 needs-validation" novalidate>
-            <div class="col-md-3">
-                <label for="validationCustom01" class="form-label">Loan Number</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.loanId"
-                readonly>
-            </div>
-            <div class="col-md-3">
-                <label for="validationCustom02" class="form-label">Applicant First Name</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantFirstName">
-            </div>
-            <div class="col-md-3">
-                <label for="validationCustom02" class="form-label">Applicant Last Name</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantLastName">
-            </div>
+<form #myForm="ngForm">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="new-card-title">Loan Details</h5>
+            <div class="row g-3 needs-validation" novalidate>
+                <div class="col-md-3">
+                    <label for="validationCustom01" class="form-label">Loan Number</label>
+                    <input class="form-control" type="text" name="txtloanNumber" [(ngModel)]="loanRecord.loanId"
+                        readonly>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom02" class="form-label">Applicant First Name</label>
+                    <!-- <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantFirstName"> -->
+                    <input type="text" class="form-control" id="firstName" name="firstName" #firstname="ngModel"
+                        [(ngModel)]="loanRecord.applicantFirstName" minlength="3" autocomplete="off" required>
+                    <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert-danger">
+                        <div *ngIf="firstname.errors?.['required']">First name is required.</div>
+                        <div *ngIf="firstname.errors?.['minlength']">Mininmum length is 3</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom02" class="form-label">Applicant Last Name</label>
+                    <!-- <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantLastName"> -->
+                    <input type="text" class="form-control" autocomplete="off" minlength="3" id="lastName"
+                        name="lastName" #lastname="ngModel" [(ngModel)]="loanRecord.applicantLastName" required>
+                    <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert-danger">
+                        <div *ngIf="lastname.errors?.['required']">Last name is required.</div>
+                        <div *ngIf="lastname.errors?.['minlength']">Mininmum length is 3</div>
+                    </div>
+                </div>
 
-            <div class="col-md-3">
-                <label for="validationCustom03" class="form-label">Applicant Address</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantAddress">
-            </div> 
-            <div class="col-md-3">
-                <label for="validationCustom03" class="form-label">Loan Type</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.loanType">
-            </div> 
-            <div class="col-md-3">
-                <label for="validationCustom03" class="form-label">Loan Amount</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.loanAmount">
-            </div> 
-            <div class="col-md-3">
-                <label for="validationCustom03" class="form-label">Loan Term</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.loanTerm">
-            </div> 
-            <div class="col-md-3">
-                <label for="validationCustom03" class="form-label">Property Address</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.propertyAddress">
-            </div>  
+                <div class="col-md-3">
+                    <label for="validationCustom03" class="form-label">Applicant Address</label>
+                    <!-- <input class="form-control" type="text" [(ngModel)]="loanRecord.applicantAddress"> -->
+                    <input type="text" class="form-control" autocomplete="off" name="appAddress" #appaddress="ngModel"
+                        [(ngModel)]="loanRecord.applicantAddress" required>
+                    <div *ngIf="appaddress.invalid && (appaddress.dirty || appaddress.touched)" class="alert-danger">
+                        <div *ngIf="appaddress.errors?.['required']">Applicant address is required.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom03" class="form-label">Loan Type</label>
+                    <!-- <input class="form-control" type="text" [(ngModel)]="loanRecord.loanType"> -->
+                    <input type="text" class="form-control" autocomplete="off" name="loanType" #loantype="ngModel"
+                        [(ngModel)]="loanRecord.loanType" required>
+                    <div *ngIf="loantype.invalid && (loantype.dirty || loantype.touched)" class="alert-danger">
+                        <div *ngIf="loantype.errors?.['required']">Loan type is required.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom03" class="form-label">Loan Amount</label>
+                    <!-- <input class="form-control" type="text" [(ngModel)]="loanRecord.loanAmount"> -->
+                    <input type="text" class="form-control" autocomplete="off" name="loanAmt" #loanamt="ngModel"
+                        [(ngModel)]="loanRecord.loanAmount" (keypress)="numberOnly($event)" required>
+                    <div *ngIf="loanamt.invalid && (loanamt.dirty || loanamt.touched)" class="alert-danger">
+                        <div *ngIf="loanamt.errors?.['required']">Loan amount is required.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom03" class="form-label">Loan Term</label>
+                    <!-- <input class="form-control" type="text" [(ngModel)]="loanRecord.loanTerm"> -->
+                    <input type="text" class="form-control" autocomplete="off" name="loanTerm" #loanterm="ngModel"
+                        [(ngModel)]="loanRecord.loanTerm" required>
+                    <div *ngIf="loanterm.invalid && (loanterm.dirty || loanterm.touched)" class="alert-danger">
+                        <div *ngIf="loanterm.errors?.['required']">Loan term is required.</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom03" class="form-label">Property Address</label>
+                    <!-- <input class="form-control" type="text" name="txtPropertyAdd" [(ngModel)]="loanRecord.propertyAddress"> -->
+                    <input type="text" class="form-control" autocomplete="off" name="propertyAddress"
+                        #propertyaddress="ngModel" [(ngModel)]="loanRecord.propertyAddress" required>
+                    <div *ngIf="propertyaddress.invalid && (propertyaddress.dirty || propertyaddress.touched)"
+                        class="alert-danger">
+                        <div *ngIf="propertyaddress.errors?.['required']">Property address is required.</div>
+                    </div>
+                </div>
 
-            <div class="col-md-3">
-                <label for="validationCustom03" class="form-label">Created Date</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.createdDate"
-                     readonly>
+                <div class="col-md-3">
+                    <label for="validationCustom03" class="form-label">Created Date</label>
+                    <input class="form-control" type="text" name="txtCreatedDate" [(ngModel)]="loanRecord.createdDate"
+                        readonly>
+                </div>
+                <div class="col-new-md">
+                    <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid"
+                        (click)="UpdateLoanDetails()">Update</button>
+                    <button class="btn btn-danger" type="submit" (click)="DeleteLoanRecord()">Delete</button>
+                </div>
             </div>
-            <div class="col-new-md">
-                <button class="btn btn-primary" type="submit" (click)="UpdateLoanDetails()">Update</button>
-                <button class="btn btn-danger" type="submit" (click)="DeleteLoanRecord()">Delete</button>
-              </div>
         </div>
     </div>
-</div>
+</form>

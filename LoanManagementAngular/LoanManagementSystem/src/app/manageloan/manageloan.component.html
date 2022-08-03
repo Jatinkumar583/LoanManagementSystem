@@ -4,15 +4,15 @@
         <form  #manageloan="ngForm"  (ngSubmit)="GetAllLoanRecords(manageloan.value)"class="row g-3 needs-validation" novalidate>
             <div class="col-md-3">
               <label for="validationCustom01" class="form-label" >First Name</label>
-              <input type="text" class="form-control" id="validationCustom01" name="txtFirstName" ngModel required>      
+              <input type="text" class="form-control" id="validationCustom01" autocomplete="off" name="txtFirstName" ngModel required>      
             </div>
             <div class="col-md-3" >
               <label for="validationCustom02" class="form-label" >Last Name</label>
-              <input type="text" class="form-control" id="validationCustom02" name="txtLastName" ngModel required>     
+              <input type="text" class="form-control" id="validationCustom02" autocomplete="off" name="txtLastName" ngModel required>     
             </div>
             <div class="col-md-3" >
                 <label for="validationCustom02" class="form-label" >Loan Number</label>
-                <input type="text" class="form-control" id="validationCustom02" name="txtLoanNumber" ngModel required>     
+                <input type="text" class="form-control" id="validationCustom02" autocomplete="off" name="txtLoanNumber" ngModel required>     
               </div>
             <div class="col-new-md">
               <button class="btn btn-primary" type="submit">Search</button>
@@ -50,5 +50,6 @@
                 </tbody>
             </table>
         </div>
+        <label class="form-label" id="lblEmptyGridMsg" *ngIf="showlblgridmsg">No record found!</label>
     </div>
 </div>
