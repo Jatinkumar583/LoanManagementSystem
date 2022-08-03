@@ -15,13 +15,15 @@ import { FilterPanelService } from '../services/filterpanel';
 export class ViewloanComponent implements OnInit {
   @ViewChild('ManageloanComponent', {static : false}) filterPanel: any;
   loanRecord:LoanDetails=new LoanDetails();
+  loanExistingDate:string="";
   constructor(public filterPanelService: FilterPanelService,private _router: Router,
     private _eventService: EventService,private _authService:AuthService,public datepipe: DatePipe) {
     
   }
 
   ngOnInit(): void {
-    this.loanRecord=this.filterPanelService.SelectedLoanDetails;    
+    this.loanRecord=this.filterPanelService.SelectedLoanDetails; 
+    this.loanExistingDate = this.datepipe.transform((this.loanRecord.createdDate), 'dd/MM/yyyy h:mm:ss')!;
   }
 
   UpdateLoanDetails(){

@@ -14,25 +14,24 @@ export class RegisterComponent {
   registerUserData: UserData = new UserData();
   constructor(private _auth: AuthService, private _router: Router) { }
   registerUser() {
-    this.registerUserData.loginType="user";
-    this._auth.registerUser(this.registerUserData).subscribe(res=>this.SuccessGet(res),res=>this.ErrorGet(res));    
-    }
-    SuccessGet(res:any){
-      Swal.fire({  
-        position: 'center',  
-        icon: 'success',  
-        text: 'User Registered Successfully!'
-      })
-      this._router.navigate(['/login'])
-      this.registerUserData=new UserData();  
-    }
-    ErrorGet(res:any){
-      console.log(res);   
-      Swal.fire({  
-        position: 'center',  
-        icon: 'error',  
-        title: 'Oops...',  
-        text: 'Something went wrong!'
-      })  
-    }
+    this._auth.registerUser(this.registerUserData).subscribe(res => this.SuccessGet(res), res => this.ErrorGet(res));
+  }
+  SuccessGet(res: any) {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      text: 'User Registered Successfully!'
+    })
+    this._router.navigate(['/login'])
+    this.registerUserData = new UserData();
+  }
+  ErrorGet(res: any) {
+    console.log(res);
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!'
+    })
+  }
 }

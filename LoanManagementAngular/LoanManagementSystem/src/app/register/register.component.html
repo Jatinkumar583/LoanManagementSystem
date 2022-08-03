@@ -1,37 +1,66 @@
-<div class="py-5">
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-            <div class="card rounded-0">
-                <div class="Card-header">
-                    <h3 class="mb-0">Register</h3>
-                </div>
-                <div class="card-body">
-                    <div class="form">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Name</label>
-                            <!-- <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Name" [(ngModel)]="registerUserData.userName" required> -->
-                                <input type="text" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter Name"  required>
+<form #myForm="ngForm">
+    <div class="py-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card rounded-0">
+                    <div class="Card-header">
+                        <h3 class="mb-0">Register</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName"
+                                    placeholder="Enter Name" #firstname="ngModel"
+                                    [(ngModel)]="registerUserData.userName" minlength="3" autocomplete="off" required>
+                                <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+                                    class="alert-danger">
+                                    <div *ngIf="firstname.errors?.['required']">User name is required.</div>
+                                    <div *ngIf="firstname.errors?.['minlength']">Mininmum length is 3</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">EmailId</label>
+                                <input type="email" class="form-control" name="emailId" placeholder="Enter email"
+                                    #emailId="ngModel" email="true" [(ngModel)]="registerUserData.emailId" minlength="3"
+                                    autocomplete="off" required>
+                                <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert-danger">
+                                    <div *ngIf="emailId.errors?.['required']">EmailId is required.</div>
+                                    <div *ngIf="emailId.errors?.['minlength']">Mininmum length is 3</div>
+                                    <div *ngIf="emailId.errors?.['email']">Email address is not valid</div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Enter Password" #password="ngModel"
+                                    [(ngModel)]="registerUserData.password" minlength="3" autocomplete="off" required>
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                    class="alert-danger">
+                                    <div *ngIf="password.errors?.['required']">Password is required.</div>
+                                    <div *ngIf="password.errors?.['minlength']">Mininmum length is 3</div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">User Type</label>
+                                <select placeholder="Select User Type" name="ddlUserType" id="#" class="form-control"  #ddlUserType="ngModel"
+                                    [(ngModel)]="registerUserData.loginType" required>
+                                    <option selected="selected" value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                <div *ngIf="myForm.submitted || ddlUserType.invalid && (ddlUserType.dirty || ddlUserType.touched)"
+                                    class="alert-danger">
+                                    <div *ngIf="ddlUserType.errors?.['required']">User type is required.</div>
+                                </div>
+                            </div>
+                            <button type="submit" (click)="registerUser()" [disabled]="myForm.invalid"
+                                class="btn btn-success float-right">Register</button>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">EmailId</label>
-                            <!-- <input type="email" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter email" [(ngModel)]="registerUserData.emailId" required> -->
-                                <input type="email" class="form-control" aria-describedby="emailHelp"
-                                placeholder="Enter email"  required>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <!-- <input type="password"  class="form-control"
-                                id="exampleInputPassword1" [(ngModel)]="registerUserData.password" placeholder="Password"> -->
-                                <input type="password"  class="form-control"
-                                id="exampleInputPassword1"  placeholder="Password">
-                        </div>
-                        <button type="submit" (click)="registerUser()"  class="btn btn-success float-right">Register</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
+</form>
