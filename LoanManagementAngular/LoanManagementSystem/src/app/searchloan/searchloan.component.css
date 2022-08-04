@@ -10,3 +10,9 @@
 .thead{
     background-color: darkgray;
 }
+#lblEmptyGridMsg{
+    text-align: center;
+    font-weight: 700;
+    color: darkgreen;
+    background-color: aquamarine;
+}

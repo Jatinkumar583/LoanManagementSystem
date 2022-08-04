@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { faSackDollar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,11 @@ export class AppComponent {
   showManageLoan:boolean=false;
   UserSection:boolean=true;
   AdminSection:boolean=false;
+  fasackdollar=faSackDollar;
   constructor(private _authService:AuthService) {
    
   }
+
   LogOut(){
     this._authService.logoutUser();
     if( localStorage.getItem('usertype')=="admin"){

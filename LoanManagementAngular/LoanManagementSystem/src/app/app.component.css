@@ -1,3 +1,10 @@
 .bg-nav-bar {
     background-color: #1b436a!important;
 }
+
+#lblHeading{
+    padding-left: inherit;
+}
+.ng-fa-icon{
+    color: aliceblue;
+}

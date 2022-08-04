@@ -25,8 +25,30 @@
             </div>  
 
             <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Loan Type</label>
+                <input type="text" class="form-control" autocomplete="off" name="loanType"
+                    [(ngModel)]="loanRecord.loanType" readonly>              
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Loan Amount</label>
+                <input type="text" class="form-control" autocomplete="off" name="loanAmt"
+                    [(ngModel)]="loanRecord.loanAmount" readonly>
+               
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Loan Term</label>
+                <input type="text" class="form-control" autocomplete="off" name="loanTerm"
+                    [(ngModel)]="loanRecord.loanTerm" readonly>               
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Property Address</label>
+                <input type="text" class="form-control" autocomplete="off" name="propertyAddress"
+                    [(ngModel)]="loanRecord.propertyAddress" readonly>              
+            </div>
+
+            <div class="col-md-3">
                 <label for="validationCustom03" class="form-label">Created Date</label>
-                <input class="form-control" type="text" [(ngModel)]="loanRecord.createdDate"
+                <input class="form-control" type="text" [(ngModel)]="loanExistingDate"
                      readonly>
             </div>
                  
@@ -34,29 +56,3 @@
         </div>
     </div>
 </div>
-<hr>
-<!-- <h2 class="new-card-title" >Passengers List</h2>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="card">
-        <div class="body table-responsive">
-            <table class="table table-condensed">
-                <thead class="thead">
-                    <tr>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Meal Option</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="bg-green" *ngFor="let item of bookedPassengerDetails">
-                        <td>{{item.passengerName}}</td>
-                        <td>{{item.passengerGender}}</td>
-                        <td>{{item.passengerAge}}</td>
-                        <td>{{item.mealOption}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> -->

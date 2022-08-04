@@ -19,7 +19,7 @@ import { EventService } from './services/event.service';
 import { FilterPanelService } from './services/filterpanel';
 import { DatePipe } from '@angular/common';
 import { ViewloanComponent } from './viewloan/viewloan.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,8 @@ import { ViewloanComponent } from './viewloan/viewloan.component';
     AppRoutingModule,
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [AuthService,EventService,FilterPanelService,DatePipe,AuthGaurd,{
     provide:HTTP_INTERCEPTORS,

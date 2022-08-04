@@ -14,6 +14,7 @@ import { FilterPanelService } from '../services/filterpanel';
 export class LoandetailsComponent implements OnInit {
   @ViewChild('SearchloanComponent', {static : false}) filterPanel: any;
   loanRecord:LoanDetails=new LoanDetails();
+  loanExistingDate:string="";
   constructor(public filterPanelService: FilterPanelService,private _router: Router,
     private _eventService: EventService,private _authService:AuthService,public datepipe: DatePipe) {
     
@@ -21,6 +22,7 @@ export class LoandetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loanRecord=this.filterPanelService.SelectedLoanData;
+    this.loanExistingDate=this.datepipe.transform((this.loanRecord.createdDate), 'dd/MM/yyyy h:mm:ss')!;
     console.log(this.loanRecord);    
   }
 

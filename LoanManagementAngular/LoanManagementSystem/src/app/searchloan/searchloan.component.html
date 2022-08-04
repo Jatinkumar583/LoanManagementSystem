@@ -2,10 +2,21 @@
     <div class="card-body">
       <h5 class="new-card-title" >Search Loan Applications</h5>
         <form  #loandetails="ngForm" (ngSubmit)="GetLoanDetails(loandetails.value)" class="row g-3 needs-validation" novalidate>
-            <div class="col-md-6">
-              <label for="validationCustom01" class="form-label" >Enter Loan Number</label>
-              <input type="text" class="form-control" id="validationCustom01" name="txtLoanNumber" ngModel required>      
+           
+            <div class="col-md-3">
+              <label for="validationCustom01" class="form-label" >First Name</label>
+              <input type="text" class="form-control" id="validationCustom01" autocomplete="off" name="txtFirstName" ngModel required>      
             </div>
+            <div class="col-md-3" >
+              <label for="validationCustom02" class="form-label" >Last Name</label>
+              <input type="text" class="form-control" id="validationCustom02" autocomplete="off" name="txtLastName" ngModel required>     
+            </div>
+            <div class="col-md-3" >
+                <label for="validationCustom02" class="form-label" >Loan Number</label>
+                <input type="text" class="form-control" id="validationCustom02" autocomplete="off" name="txtLoanNumber" ngModel required>     
+              </div>
+
+
             <div class="col-new-md">
               <button class="btn btn-primary" type="submit">Search</button>
             </div>
@@ -19,24 +30,27 @@
             <table class="table table-condensed">
                 <thead class="thead">
                     <tr>
-                        <th>Loan No.</th>
-                        <th>Applicant First Name</th>
-                        <th>Applicant Last Name</th>
-                        <th>Address</th>                  
-                        <th>Action</th>
+                      <th>Loan No.</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Loan Type</th>                      
+                      <th>Property Address</th>
+                      <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="bg-green" *ngFor="let item of filteredRecord">
-                        <td>{{item.loanId}}</td>
-                        <td>{{item.applicantFirstName}}</td>
-                        <td>{{item.applicantLastName}}</td>
-                        <td>{{item.applicantAddress}}</td>                      
+                      <td >{{item.loanId}}</td>
+                      <td>{{item.applicantFirstName}}</td>
+                      <td>{{item.applicantLastName}}</td>
+                      <td>{{item.loanType}}</td>
+                      <td>{{item.propertyAddress}}</td>                 
                         <td><button class="btn btn-primary" (click)="ShowLoanDetails(item)" type="submit">Loan Details</button></td>                     
                     </tr>
                 </tbody>
             </table>
         </div>
+        <label class="form-label" id="lblEmptyGridMsg" *ngIf="showlblgridmsg">No record found!</label>
     </div>
 </div>
 

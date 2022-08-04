@@ -47,7 +47,7 @@
                                 <label for="exampleInputPassword1">User Type</label>
                                 <select placeholder="Select User Type" name="ddlUserType" id="#" class="form-control"  #ddlUserType="ngModel"
                                     [(ngModel)]="registerUserData.loginType" required>
-                                    <option selected="selected" value="user">User</option>
+                                    <option value="user">User</option>
                                     <option value="admin">Admin</option>
                                 </select>
                                 <div *ngIf="myForm.submitted || ddlUserType.invalid && (ddlUserType.dirty || ddlUserType.touched)"

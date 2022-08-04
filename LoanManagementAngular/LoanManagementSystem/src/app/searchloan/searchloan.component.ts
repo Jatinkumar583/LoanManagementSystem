@@ -11,7 +11,7 @@ import { FilterPanelService } from '../services/filterpanel';
 })
 export class SearchloanComponent implements OnInit {
 
- // tblShow: boolean = false;
+  showlblgridmsg:boolean=false;
   filteredRecord: Array<LoanDetails> = new Array<LoanDetails>();
   SearchLoanList: Array<LoanDetails> = new Array<LoanDetails>();
   constructor(private _eventService: EventService, private _router: Router
@@ -20,15 +20,32 @@ export class SearchloanComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._eventService.GetLoansList().subscribe(res => this.SuccessGet(res), err => (console.log(err),this._router.navigate(['/login'])));
+  }
+  SuccessGet(res:any){     
+    this.filteredRecord = res;  
+    if(this.filteredRecord.length==0){
+      this.showlblgridmsg=true;
+    }
+    else{
+      this.showlblgridmsg=false;
+    }  
   }
 
   GetLoanDetails(data: any) {    
     this._eventService.GetLoansList().subscribe(res => this.SearchLoanList = res, err => (console.log(err),this._router.navigate(['/login'])));
-    console.log(this.SearchLoanList);
+     
     this.filteredRecord = this.SearchLoanList.filter(function (item) {
-      return item.loanId == data.txtLoanNumber;
+      //return item.loanId == data.txtLoanNumber;
+      return item.applicantFirstName.toUpperCase().trim() == data.txtFirstName.toUpperCase().trim()
+       || item.applicantLastName.toUpperCase().trim() == data.txtLastName.toUpperCase().trim()  || item.loanId == data.txtLoanNumber.trim() ;
     });
-    console.log(this.filteredRecord);
+    if(this.filteredRecord.length==0){
+      this.showlblgridmsg=true;
+    }
+    else{
+      this.showlblgridmsg=false;
+    } 
   }
 
   ShowLoanDetails(data:any){
