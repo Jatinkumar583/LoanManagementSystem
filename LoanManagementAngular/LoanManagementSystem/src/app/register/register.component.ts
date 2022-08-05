@@ -11,6 +11,9 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  onSubmit() {
+    throw new Error('Method not implemented.');
+  }
   registerUserData: UserData = new UserData();
   constructor(private _auth: AuthService, private _router: Router) { }
   
