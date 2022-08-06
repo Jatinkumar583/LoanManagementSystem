@@ -45,7 +45,7 @@ namespace LoanManagementWebAPI.Controllers
             {
                 if (user != null)
                 {
-                    return Ok(_userDetails.GetUserDetails(user));
+                   return Ok(_userDetails.GetUserDetails(user));
                 }
                 return BadRequest();
             }

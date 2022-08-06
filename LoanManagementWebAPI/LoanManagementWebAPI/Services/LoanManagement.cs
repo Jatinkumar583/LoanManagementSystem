@@ -9,7 +9,7 @@ namespace LoanManagementWebAPI.Services
 {
     public class LoanManagement : ILoanManagement
     {
-        LoanManagementContext _loanManagementContext;
+         LoanManagementContext _loanManagementContext;
         public LoanManagement(LoanManagementContext loanManagementContext)
         {
             _loanManagementContext = loanManagementContext;
@@ -58,7 +58,7 @@ namespace LoanManagementWebAPI.Services
                     LoanType = loanDetails.LoanType,
                     LoanAmount = loanDetails.LoanAmount,
                     LoanTerm = loanDetails.LoanTerm,
-                    PropertyAddress=loanDetails.PropertyAddress,
+                    PropertyAddress = loanDetails.PropertyAddress,
                     CreatedBy = loanDetails.CreatedBy,
                     CreatedDate = DateTime.UtcNow,
                     UpdatedBy = loanDetails.UpdatedBy,

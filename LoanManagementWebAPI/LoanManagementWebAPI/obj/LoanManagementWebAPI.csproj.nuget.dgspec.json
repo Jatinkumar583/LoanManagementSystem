@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LoanManagementProjects\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj": {}
+    "D:\\LoanManagementSystem\\LoanManagementSystem\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj": {}
   },
   "projects": {
-    "D:\\LoanManagementProjects\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj": {
+    "D:\\LoanManagementSystem\\LoanManagementSystem\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LoanManagementProjects\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj",
+        "projectUniqueName": "D:\\LoanManagementSystem\\LoanManagementSystem\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj",
         "projectName": "LoanManagementWebAPI",
-        "projectPath": "D:\\LoanManagementProjects\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj",
+        "projectPath": "D:\\LoanManagementSystem\\LoanManagementSystem\\LoanManagementWebAPI\\LoanManagementWebAPI\\LoanManagementWebAPI.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\LoanManagementProjects\\LoanManagementWebAPI\\LoanManagementWebAPI\\obj\\",
+        "outputPath": "D:\\LoanManagementSystem\\LoanManagementSystem\\LoanManagementWebAPI\\LoanManagementWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

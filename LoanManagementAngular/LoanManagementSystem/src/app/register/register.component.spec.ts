@@ -34,15 +34,15 @@ describe('RegisterComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  // it('forms should be invalid', async(() => {
-  //   component.
-  //   component.onSubmit()
-  //   expect(component).toBeTruthy();
-  // }));
+  it('forms should be invalid', async(() => {
+    component.registerUserData.emailId="jatin@gmail.com";
+    component.onSubmit()
+    expect(component).toBeTruthy();
+  }));
 
-  // it('forms should be valid', async(() => {
-  //   component.onSubmit()
-  //   expect(component).toBeTruthy();
-  // }));
+  it('forms should be valid', async(() => {
+    component.onSubmit()
+    expect(component).toBeTruthy();
+  }));
 
 });

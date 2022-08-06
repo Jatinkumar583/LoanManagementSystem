@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LoanManagementWebAPI.Controllers
 {
-    [Authorize]   
+    [Authorize]
     [Route("api")]
     [ApiController]
     public class LoanManageController : ControllerBase
@@ -55,7 +55,7 @@ namespace LoanManagementWebAPI.Controllers
             {
                 if (loanDetails != null)
                 {
-                   
+
                     int status = _loanManagement.SaveLoanRecord(loanDetails);
                     if (status >= 1)
                     {
