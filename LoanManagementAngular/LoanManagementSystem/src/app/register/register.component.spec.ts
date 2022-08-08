@@ -46,7 +46,6 @@ describe('RegisterComponent', () => {
 
   it('forms should be invalid', async(() => {
     fixture.whenStable().then(()=>{
-
       let name=component.registerForm.form.controls['firstname']; 
       let email=component.registerForm.form.controls['emailId'];
       let passwrd=component.registerForm.form.controls['password'];
@@ -67,9 +66,26 @@ describe('RegisterComponent', () => {
     });   
   }));
 
-  // it('forms should be valid', async(() => {
-  //   component.onSubmit()
-  //   expect(component).toBeTruthy();
-  // }));
+  it('forms should be valid', async(() => {
+    fixture.whenStable().then(()=>{
+      let name=component.registerForm.form.controls['firstname']; 
+      let email=component.registerForm.form.controls['emailId'];
+      let passwrd=component.registerForm.form.controls['password'];
+      let ddluser=component.registerForm.form.controls['ddlUserType'];
+      expect(name.invalid).toBeTruthy();
+      expect(email.invalid).toBeTruthy();
+      expect(passwrd.invalid).toBeTruthy();
+      expect(ddluser.untouched).toBeTruthy();
+      expect(component.registerForm.invalid).toBeTruthy();
+      name.setValue('Mukesh');
+      email.setValue('mukesh@gmail.com');
+      passwrd.setValue('2356');
+      ddluser.setValue('user');
+      expect(name.untouched).toBeTruthy();
+      expect(email.valid).toBeTruthy();
+      expect(passwrd.untouched).toBeTruthy();
+      expect(ddluser.touched).toBeFalsy();
+    });   
+  }));
 
 });
