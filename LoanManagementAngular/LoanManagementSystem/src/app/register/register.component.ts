@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 //import Swal from 'sweetalert2';
@@ -11,6 +12,12 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('registerForm', { static: true }) registerForm!: NgForm;
+  firstname:string="";
+  emailId:string="";
+  password:string="";
+  ddlUserType:string="";
+
   onSubmit() {
     throw new Error('Method not implemented.');
   }
@@ -22,7 +29,9 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this._auth.registerUser(this.registerUserData).subscribe(res => this.SuccessGet(res), res => this.ErrorGet(res));
+    if(this.registerForm.valid){
+      this._auth.registerUser(this.registerUserData).subscribe(res => this.SuccessGet(res), res => this.ErrorGet(res));
+    }
   }
   SuccessGet(res: any) {
     Swal.fire({

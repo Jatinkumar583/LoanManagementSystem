@@ -1,4 +1,4 @@
-<form #myForm="ngForm">
+<form #registerForm="ngForm">
     <div class="py-5">
         <div class="row">
             <div class="col-md-6 mx-auto">
@@ -50,12 +50,12 @@
                                     <option value="user">User</option>
                                     <option value="admin">Admin</option>
                                 </select>
-                                <div *ngIf="myForm.submitted || ddlUserType.invalid && (ddlUserType.dirty || ddlUserType.touched)"
+                                <div *ngIf="registerForm.submitted || ddlUserType.invalid && (ddlUserType.dirty || ddlUserType.touched)"
                                     class="alert-danger">
                                     <div *ngIf="ddlUserType.errors?.['required']">User type is required.</div>
                                 </div>
                             </div>
-                            <button type="submit" (click)="registerUser()" [disabled]="myForm.invalid"
+                            <button type="submit" (click)="registerUser()" [disabled]="registerForm.invalid"
                                 class="btn btn-success float-right">Register</button>
                         </div>
                     </div>
