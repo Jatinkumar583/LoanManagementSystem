@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
 //import {RouterTestingModule} 
 import { Location } from '@angular/common';
 import { RegisterComponent } from './register.component';
@@ -18,9 +19,10 @@ describe('RegisterComponent', () => {
       declarations: [ RegisterComponent ],
       imports:[
         BrowserModule,
-        FormsModule
+        FormsModule,
+        RouterTestingModule
       ],
-      providers:[AuthService,HttpClient,HttpHandler,Router]
+      providers:[AuthService,HttpClient,HttpHandler]
     })
     .compileComponents();
     // .then(()=>{
@@ -44,11 +46,24 @@ describe('RegisterComponent', () => {
 
   it('forms should be invalid', async(() => {
     fixture.whenStable().then(()=>{
+
+      let name=component.registerForm.form.controls['firstname']; 
       let email=component.registerForm.form.controls['emailId'];
+      let passwrd=component.registerForm.form.controls['password'];
+      let ddluser=component.registerForm.form.controls['ddlUserType'];
+      expect(name.valid).toBeFalsy();
       expect(email.valid).toBeFalsy();
+      expect(passwrd.valid).toBeFalsy();
+      expect(ddluser.touched).toBeFalsy();
       expect(component.registerForm.valid).toBeFalsy();
+      name.setValue('');
       email.setValue('abc');
+      passwrd.setValue('');
+      ddluser.setValue('');
+      expect(name.untouched).toBeTruthy();
       expect(email.errors!['email']).toBeTruthy();
+      expect(passwrd.untouched).toBeTruthy();
+      expect(ddluser.untouched).toBeTruthy();
     });   
   }));
 

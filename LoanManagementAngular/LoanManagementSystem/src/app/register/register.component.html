@@ -10,7 +10,7 @@
                         <div class="form">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName"
+                                <input type="text" class="form-control" id="firstName" name="firstname"
                                     placeholder="Enter Name" #firstname="ngModel"
                                     [(ngModel)]="registerUserData.userName" minlength="3" autocomplete="off" required>
                                 <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
