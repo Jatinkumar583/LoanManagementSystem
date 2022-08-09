@@ -24,25 +24,34 @@ describe('RegisterComponent', () => {
       ],
       providers:[AuthService,HttpClient,HttpHandler]
     })
-    .compileComponents();
-    // .then(()=>{
-    //   fixture = TestBed.createComponent(RegisterComponent);
-    //   component = fixture.componentInstance;    
-    //   fixture.detectChanges();
-
-    // });   
-  }));
-
-  beforeEach(()=>{
-    fixture = TestBed.createComponent(RegisterComponent);
+    .compileComponents()
+    .then(()=>{
+      fixture = TestBed.createComponent(RegisterComponent);
       component = fixture.componentInstance;    
       fixture.detectChanges();
-  });
 
-  // it('should set submitted to true', async(() => {
-  //   component.onSubmit()
-  //   expect(component).toBeTruthy();
-  // }));
+    });   
+  }));
+
+  it('should set submitted to true', async(() => {
+
+    let name=component.registerForm.form.controls['firstname']; 
+    let email=component.registerForm.form.controls['emailId'];
+    let passwrd=component.registerForm.form.controls['password'];
+    let ddluser=component.registerForm.form.controls['ddlUserType'];  
+    name.setValue('Mukesh');
+    email.setValue('mukesh@gmail.com');
+    passwrd.setValue('2356');
+    ddluser.setValue('user');
+    expect(name.valid).toBeTruthy();
+    expect(email.valid).toBeTruthy();
+    expect(passwrd.valid).toBeTruthy();
+    expect(ddluser.valid).toBeTruthy();
+    expect(component.registerForm.valid).toBeTrue();
+
+    let result= component.registerUser()
+    expect(result).toBe(1);
+  }));
 
   it('forms should be invalid', async(() => {
     fixture.whenStable().then(()=>{
@@ -66,26 +75,25 @@ describe('RegisterComponent', () => {
     });   
   }));
 
+  
+
   it('forms should be valid', async(() => {
     fixture.whenStable().then(()=>{
       let name=component.registerForm.form.controls['firstname']; 
       let email=component.registerForm.form.controls['emailId'];
       let passwrd=component.registerForm.form.controls['password'];
-      let ddluser=component.registerForm.form.controls['ddlUserType'];
-      expect(name.invalid).toBeTruthy();
-      expect(email.invalid).toBeTruthy();
-      expect(passwrd.invalid).toBeTruthy();
-      expect(ddluser.untouched).toBeTruthy();
-      expect(component.registerForm.invalid).toBeTruthy();
+      let ddluser=component.registerForm.form.controls['ddlUserType'];  
       name.setValue('Mukesh');
       email.setValue('mukesh@gmail.com');
       passwrd.setValue('2356');
       ddluser.setValue('user');
-      expect(name.untouched).toBeTruthy();
+      expect(name.valid).toBeTruthy();
       expect(email.valid).toBeTruthy();
-      expect(passwrd.untouched).toBeTruthy();
-      expect(ddluser.touched).toBeFalsy();
+      expect(passwrd.valid).toBeTruthy();
+      expect(ddluser.valid).toBeTruthy();
+      expect(component.registerForm.valid).toBeTrue();
     });   
+
   }));
 
 });

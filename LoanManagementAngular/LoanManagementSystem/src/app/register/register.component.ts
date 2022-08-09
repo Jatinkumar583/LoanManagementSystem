@@ -18,9 +18,9 @@ export class RegisterComponent implements OnInit {
   password:string="";
   ddlUserType:string="";
 
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
+  // onSubmit() {
+  //   throw new Error('Method not implemented.');
+  // }
   registerUserData: UserData = new UserData();
   constructor(private _auth: AuthService, private _router: Router) { }
   
@@ -28,10 +28,14 @@ export class RegisterComponent implements OnInit {
     this.registerUserData.loginType="user";
   }
 
-  registerUser() {
+  registerUser():number {
     if(this.registerForm.valid){
-      this._auth.registerUser(this.registerUserData).subscribe(res => this.SuccessGet(res), res => this.ErrorGet(res));
+      this._auth.registerUser(this.registerUserData).subscribe(res => this.SuccessGet(res), res => this.ErrorGet(res));   
+      return 1; 
     }
+    else{
+      return 0;
+    }    
   }
   SuccessGet(res: any) {
     Swal.fire({
@@ -39,7 +43,13 @@ export class RegisterComponent implements OnInit {
       icon: 'success',
       text: 'User Registered Successfully!'
     })
-    this._router.navigate(['/login'])
+    //this._router.navigate(['/login'])
+    localStorage.removeItem('token');
+    localStorage.removeItem('usertype');
+    localStorage.removeItem('userid');
+    localStorage.removeItem('username');
+    localStorage.removeItem('emailId');
+    this._router.navigate(['/login']);
     this.registerUserData = new UserData();
   }
   ErrorGet(res: any) {
